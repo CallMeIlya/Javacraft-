@@ -9,6 +9,7 @@ public class JavaCraft {
   private static final int LEAVES = 2;
   private static final int STONE = 3;
   private static final int IRON_ORE = 4;
+  private static final int SPHERE = 5;
   private static int NEW_WORLD_WIDTH = 25;
   private static int NEW_WORLD_HEIGHT = 15;
   private static int EMPTY_BLOCK = 0;
@@ -37,7 +38,9 @@ public class JavaCraft {
       "4 - Iron ore block\n" +
       "5 - Wooden Planks (Crafted Item)\n" +
       "6 - Stick (Crafted Item)\n" +
-      "7 - Iron Ingot (Crafted Item)";
+      "7 - Iron Ingot (Crafted Item)\n" +
+          "8 - Sphere (anomaly)\n";
+
   private static int[][] world;
   private static int worldWidth;
   private static int worldHeight;
@@ -95,6 +98,8 @@ public class JavaCraft {
           world[x][y] = STONE;
         } else if (randValue < 70) {
           world[x][y] = IRON_ORE;
+        } else if (randValue < 71) {
+            world[x][y] = SPHERE;
         } else {
           world[x][y] = AIR;
         }
