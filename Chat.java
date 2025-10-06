@@ -24,7 +24,7 @@ public class Chat {
     }
 
     static public String affineEncrypt(String message, int A, int B) {
-        message = message.toLowerCase();
+        message = message.toUpperCase();
         String cipher = "";
         for(int i = 0; i < message.length(); i++) {
             if(message.charAt(i) != ' ') {
