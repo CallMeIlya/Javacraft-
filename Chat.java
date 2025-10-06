@@ -5,14 +5,14 @@ import java.util.*;
 public class Chat {
     static final int A = 5;
     static final int B = 8;
-
-    static final int ASCIISTART = 65;
+    static final int ALPHABETSIZE = 64;
+    static final int ASCIISTART = 32;
 
     static public int getInverse(int a) {
         int a_inv = 0;
         int flag = 0;
-        for(int i = 0; i < 26; i++) {
-            flag = (a*i)%26;
+        for(int i = 0; i < ALPHABETSIZE; i++) {
+            flag = (a*i)%64;
             if(flag != 1) {
                 continue;
             } else {
@@ -28,8 +28,7 @@ public class Chat {
         String cipher = "";
         for(int i = 0; i < message.length(); i++) {
             if(message.charAt(i) != ' ') {
-                cipher += (char) ((A*((int)message.charAt(i)-ASCIISTART)+B)%26 + ASCIISTART);
-                //97 is ascii value of a
+                cipher += (char) ((A*((int)message.charAt(i)-ASCIISTART)+B)%ALPHABETSIZE + ASCIISTART); //97 is ascii value of a
             } else {
                 cipher+= message.charAt(i);
             }
@@ -42,7 +41,7 @@ public class Chat {
 
         for(int i = 0; i < cipher.length(); i++) {
             if(cipher.charAt(i) != ' ') {
-                message+= (char) (((a_inv*(((int)cipher.charAt(i)+ASCIISTART)-B))%26) + ASCIISTART);
+                message+= (char) (((a_inv*(((int)cipher.charAt(i)+ASCIISTART)-B))%ALPHABETSIZE) + ASCIISTART);
             } else {
                 message+=cipher.charAt(i);
             }
@@ -139,14 +138,14 @@ public class Chat {
                         // on to step 2.
                         break;
                     }
-
+                    fromServer = fromServer.toUpperCase();
                     fromServer = affineDecrypt(fromServer, A, B);
                     // Some other message from the server: just print it.
                     System.out.println(fromServer);
                 }
 
                 // 2. Collect a line of input from the user.
-                var messageToSend = inputFromUser.nextLine().split(",");
+                var messageToSend = inputFromUser.nextLine().toUpperCase().split(",");
 
                 if(messageToSend.length >=5) {
                     System.out.println("too many arguments");
@@ -155,8 +154,8 @@ public class Chat {
 
 
 
-                int keyA = 8;
-                int keyB = 15;
+                int keyA = A;
+                int keyB = B;
 
                 if(messageToSend.length == 4) {
                     keyB = Integer.parseInt(messageToSend[2]);
