@@ -29,7 +29,7 @@ public class JavaCraft {
   private static final String ANSI_BLUE = "\u001B[34m";
   private static final String ANSI_GRAY = "\u001B[37m";
   private static final String ANSI_WHITE = "\u001B[97m";
-  private static final String ANSI_SPHERE = "\u25CF";
+  private static final String ANSI_SPHERE = "\u25CF"; //unicode for a sphere in minecraft
 
   private static final String BLOCK_NUMBERS_INFO = "Block Numbers:\n" +
       "0 - Empty block\n" +
@@ -97,9 +97,9 @@ public class JavaCraft {
           world[x][y] = LEAVES;
         } else if (randValue < 50) {
           world[x][y] = STONE;
-        } else if (randValue < 70) {
+        } else if (randValue < 69) {
           world[x][y] = IRON_ORE;
-        } else if (randValue < 71) {
+        } else if (randValue < 70) {
             world[x][y] = SPHERE;
         } else {
           world[x][y] = AIR;
