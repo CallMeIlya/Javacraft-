@@ -464,7 +464,7 @@ public class JavaCraft {
     System.out.println("2. Craft Stick: 1 Wood");
     System.out.println("3. Craft Iron Ingot: 3 Iron Ore");
     System.out.println("4. Craft Poker Card Deck: 1 Ace of Spades, 1 Diamond Ore");
-    System.out.println("5. Craft Sphere of Power: 1 Sphere, 1 Diamond Ore, 1 Iron Ingot");
+    System.out.println("5. Craft Sphere of Power: 1 Sphere, 1 Diamond Ore, 1 Iron Ore");
   }
 
   public static void craftItem(int recipe) {
@@ -532,10 +532,10 @@ public class JavaCraft {
   }
 
   public static void craftSphereOfPower() {
-    if(inventoryContains(SPHERE) && inventoryContains(DIAMOND_ORE) && inventoryContains(CRAFTED_IRON_INGOT)) {
+    if(inventoryContains(SPHERE) && inventoryContains(DIAMOND_ORE) && inventoryContains(IRON_ORE)) {
       removeItemsFromInventory(SPHERE, 1);
       removeItemsFromInventory(DIAMOND_ORE, 1);
-      removeItemsFromInventory(CRAFTED_IRON_INGOT, 1);
+      removeItemsFromInventory(IRON_ORE, 1);
       addCraftedItem(CRAFTED_SPHER_OF_POWER);
       System.out.println(ANSI_PURPLE + "The air crackles as you combine the elements..."+ ANSI_RESET);
       System.out.println(ANSI_CYAN + "A faint hum fills the world - you have crafted the Sphere of Power"+ ANSI_RESET);
