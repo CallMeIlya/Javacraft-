@@ -1,0 +1,38 @@
+2025-09-12T13:48:18.998593+02:00 pi0028 sshd[869]: Accepted password for pi0028 from 10.1.2.35 port 58691 ssh2
+2025-09-12T13:48:19.007343+02:00 pi0028 sshd[869]: pam_unix(sshd:session): session opened for user pi0028(uid=1011) by (uid=0)
+2025-09-12T13:48:19.051698+02:00 pi0028 systemd-logind[652]: New session 1 of user pi0028.
+2025-09-12T13:48:19.084810+02:00 pi0028 (systemd): pam_unix(systemd-user:session): session opened for user pi0028(uid=1011) by (uid=0)
+2025-09-12T13:48:19.503935+02:00 pi0028 sshd[869]: pam_env(sshd:session): deprecated reading of user environment enabled
+2025-09-12T13:49:13.279882+02:00 pi0028 sshd[974]: Connection closed by 10.1.2.47 port 44135 [preauth]
+2025-09-12T13:52:03.864932+02:00 pi0028 sshd[991]: Accepted password for pi0028 from 10.1.1.28 port 55963 ssh2
+2025-09-12T13:52:03.866560+02:00 pi0028 sshd[991]: pam_unix(sshd:session): session opened for user pi0028(uid=1011) by (uid=0)
+2025-09-12T13:52:03.900720+02:00 pi0028 systemd-logind[652]: New session 3 of user pi0028.
+2025-09-12T13:52:03.905970+02:00 pi0028 sshd[991]: pam_env(sshd:session): deprecated reading of user environment enabled
+2025-09-12T13:59:38.305960+02:00 pi0028 sshd[1014]: Accepted password for pi0028 from 10.1.2.228 port 53158 ssh2
+2025-09-12T13:59:38.315870+02:00 pi0028 sshd[1014]: pam_unix(sshd:session): session opened for user pi0028(uid=1011) by (uid=0)
+2025-09-12T13:59:38.340487+02:00 pi0028 systemd-logind[652]: New session 4 of user pi0028.
+2025-09-12T13:59:38.345633+02:00 pi0028 sshd[1014]: pam_env(sshd:session): deprecated reading of user environment enabled
+2025-09-12T14:01:20.131494+02:00 pi0028 sshd[1039]: Accepted password for pi0028 from 10.1.2.144 port 49227 ssh2
+2025-09-12T14:01:20.133036+02:00 pi0028 sshd[1039]: pam_unix(sshd:session): session opened for user pi0028(uid=1011) by (uid=0)
+2025-09-12T14:01:20.136897+02:00 pi0028 systemd-logind[652]: New session 5 of user pi0028.
+2025-09-12T14:01:20.157672+02:00 pi0028 sshd[1039]: pam_env(sshd:session): deprecated reading of user environment enabled
+2025-09-12T14:06:34.769266+02:00 pi0028 sudo:   pi0028 : TTY=pts/0 ; PWD=/home ; USER=root ; COMMAND=/usr/bin/mkdir lab
+2025-09-12T14:06:34.780507+02:00 pi0028 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by pi0028(uid=1011)
+2025-09-12T14:06:34.780572+02:00 pi0028 sudo: pam_unix(sudo:session): session closed for user root
+2025-09-12T14:06:44.517396+02:00 pi0028 sudo:   pi0028 : TTY=pts/0 ; PWD=/home ; USER=root ; COMMAND=/usr/bin/rm -rf lab
+2025-09-12T14:06:44.519406+02:00 pi0028 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by pi0028(uid=1011)
+2025-09-12T14:06:44.519473+02:00 pi0028 sudo: pam_unix(sudo:session): session closed for user root
+2025-09-12T14:07:36.828971+02:00 pi0028 sudo:   pi0028 : TTY=pts/0 ; PWD=/home ; USER=root ; COMMAND=/usr/bin/mkdir
+2025-09-12T14:07:36.829925+02:00 pi0028 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by pi0028(uid=1011)
+2025-09-12T14:07:36.831900+02:00 pi0028 sudo: pam_unix(sudo:session): session closed for user root
+2025-09-12T14:07:40.160797+02:00 pi0028 sudo:   pi0028 : TTY=pts/0 ; PWD=/home ; USER=root ; COMMAND=/usr/bin/mkdir lab
+2025-09-12T14:07:40.162449+02:00 pi0028 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by pi0028(uid=1011)
+2025-09-12T14:07:40.163098+02:00 pi0028 sudo: pam_unix(sudo:session): session closed for user root
+2025-09-12T14:08:07.968344+02:00 pi0028 sudo:   pi0028 : TTY=pts/1 ; PWD=/home ; USER=root ; COMMAND=/usr/bin/mkdir lab
+2025-09-12T14:08:07.968885+02:00 pi0028 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by pi0028(uid=1011)
+2025-09-12T14:08:07.970529+02:00 pi0028 sudo: pam_unix(sudo:session): session closed for user root
+2025-09-12T14:08:12.499828+02:00 pi0028 sudo:   pi0028 : TTY=pts/3 ; PWD=/home/pi0028 ; USER=root ; COMMAND=/usr/bin/mkdir lab
+2025-09-12T14:08:12.500989+02:00 pi0028 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by pi0028(uid=1011)
+2025-09-12T14:08:12.502511+02:00 pi0028 sudo: pam_unix(sudo:session): session closed for user root
+2025-09-12T14:11:31.785699+02:00 pi0028 sudo:   pi0028 : TTY=pts/0 ; PWD=/home/lab ; USER=root ; COMMAND=/usr/bin/cp /var/log/auth.log /home/lab
+2025-09-12T14:11:31.786240+02:00 pi0028 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by pi0028(uid=1011)
