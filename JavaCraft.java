@@ -10,6 +10,7 @@ public class JavaCraft {
   private static final int STONE = 3;
   private static final int IRON_ORE = 4;
   private static final int SPHERE = 5;
+  private static final int ACE= 6;
   private static int NEW_WORLD_WIDTH = 25;
   private static int NEW_WORLD_HEIGHT = 15;
   private static int EMPTY_BLOCK = 0;
@@ -29,7 +30,8 @@ public class JavaCraft {
   private static final String ANSI_BLUE = "\u001B[34m";
   private static final String ANSI_GRAY = "\u001B[37m";
   private static final String ANSI_WHITE = "\u001B[97m";
-  private static final String ANSI_SPHERE = "\u001B[0m"; //unicode for a sphere in minecraft
+  private static final String ANSI_SPHERE = "\u001B[0m";
+  private static final String ANSI_ACE= "\u001B[0m";//unicode for a sphere in minecraft
 
   private static final String BLOCK_NUMBERS_INFO = "Block Numbers:\n" +
       "0 - Empty block\n" +
@@ -99,8 +101,10 @@ public class JavaCraft {
           world[x][y] = STONE;
         } else if (randValue < 70) {
           world[x][y] = IRON_ORE;
-        } else if (randValue < 75) { //sphere block new addition
+        } else if (randValue < 75) {//sphere block new addition
            world[x][y] = SPHERE;
+        } else if (randValue < 76) {
+           world[x][y] = ACE;
         } else {
           world[x][y] = AIR;
         }
@@ -147,6 +151,9 @@ public class JavaCraft {
       case SPHERE:
         blockColor = ANSI_SPHERE;
         break;
+      case ACE:
+        blockColor = ANSI_ACE;
+        break;
       default:
         blockColor = ANSI_RESET;
         break;
@@ -166,6 +173,8 @@ public class JavaCraft {
         return '\u00B0';
       case SPHERE:
         return '\u25CF';
+      case ACE:
+        return '\u2660';
       default:
         return '-';
     }
@@ -550,8 +559,12 @@ public class JavaCraft {
         inventory.add(IRON_ORE);
         break;
       case SPHERE:
-        System.out.println("You find a sphere! It looks unstable!");
+        System.out.println("You find a sphere! You wonder how it found its way to a world like this");
         inventory.add(SPHERE);
+        break;
+      case ACE:
+        System.out.println("You find an Ace of Spades card! Holding it fills you with a feeling of reassurance");
+        inventory.add(ACE);
         break;
       case AIR:
         System.out.println("Nothing to interact with here.");
@@ -616,6 +629,8 @@ public class JavaCraft {
         return "Iron Ore";
       case SPHERE:
         return "Sphere";
+      case ACE:
+        return "Ace of Spades";
       default:
         return "Unknown";
     }
@@ -636,7 +651,7 @@ public class JavaCraft {
     if (inventory.isEmpty()) {
       System.out.println(ANSI_YELLOW + "Empty" + ANSI_RESET);
     } else {
-      int[] blockCounts = new int[6];
+      int[] blockCounts = new int[7];
       for (int i = 0; i < inventory.size(); i++) {
         int block = inventory.get(i);
         blockCounts[block]++;
