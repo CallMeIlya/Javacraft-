@@ -18,9 +18,13 @@ public class JavaCraft {
   private static final int CRAFT_WOODEN_PLANKS = 100;
   private static final int CRAFT_STICK = 101;
   private static final int CRAFT_IRON_INGOT = 102;
+  private static final int CRAFT_POKER_DECK = 103;
+  private static final int CRAFT_SPHER_OF_POWER = 104;
   private static final int CRAFTED_WOODEN_PLANKS = 200;
   private static final int CRAFTED_STICK = 201;
   private static final int CRAFTED_IRON_INGOT = 202;
+  private static final int CRAFTED_POKER_DECK = 203;
+  private static final int CRAFTED_SPHER_OF_POWER = 204;
   private static final String ANSI_BROWN = "\u001B[33m";
   private static final String ANSI_RESET = "\u001B[0m";
   private static final String ANSI_GREEN = "\u001B[32m";
@@ -459,6 +463,8 @@ public class JavaCraft {
     System.out.println("1. Craft Wooden Planks: 2 Wood");
     System.out.println("2. Craft Stick: 1 Wood");
     System.out.println("3. Craft Iron Ingot: 3 Iron Ore");
+    System.out.println("4. Craft Poker Card Deck: 1 Ace of Spades, 1 Diamond Ore");
+    System.out.println("5. Craft Sphere of Power: 1 Sphere, 1 Diamond Ore, 1 Iron Ingot");
   }
 
   public static void craftItem(int recipe) {
@@ -471,6 +477,12 @@ public class JavaCraft {
         break;
       case 3:
         craftIronIngot();
+        break;
+      case 4:
+        craftPokerDeck();
+        break;
+      case 5:
+        craftSphereOfPower();
         break;
       default:
         System.out.println("Invalid recipe number.");
@@ -505,6 +517,31 @@ public class JavaCraft {
       System.out.println("Crafted Iron Ingot.");
     } else {
       System.out.println("Insufficient resources to craft Iron Ingot.");
+    }
+  }
+
+  public static void craftPokerDeck() {
+    if(inventoryContains(ACE) && inventoryContains(DIAMOND_ORE)) {
+      removeItemsFromInventory(ACE, 1);
+      removeItemsFromInventory(DIAMOND_ORE, 1);
+      addCraftedItem(CRAFTED_POKER_DECK);
+      System.out.println(ANSI_PURPLE + "Congratulations! You just crafted the most useless thing in this game! A Poker Card Deck!"+ ANSI_RESET);
+    } else {
+      System.out.println("Insufficient resources to craft Poker Card Deck.");
+    }
+  }
+
+  public static void craftSphereOfPower() {
+    if(inventoryContains(SPHERE) && inventoryContains(DIAMOND_ORE) && inventoryContains(CRAFTED_IRON_INGOT)) {
+      removeItemsFromInventory(SPHERE, 1);
+      removeItemsFromInventory(DIAMOND_ORE, 1);
+      removeItemsFromInventory(CRAFTED_IRON_INGOT, 1);
+      addCraftedItem(CRAFTED_SPHER_OF_POWER);
+      System.out.println(ANSI_PURPLE + "The air crackles as you combine the elements..."+ ANSI_RESET);
+      System.out.println(ANSI_CYAN + "A faint hum fills the world - you have crafted the Sphere of Power"+ ANSI_RESET);
+      System.out.println(ANSI_YELLOW + "You feel a strange energy around you... but nothing happens."+ ANSI_RESET);
+    } else {
+      System.out.println("Insufficient resources to craft Sphere of Power.");
     }
   }
 
@@ -725,6 +762,10 @@ public class JavaCraft {
         return "Stick";
       case CRAFTED_IRON_INGOT:
         return "Iron Ingot";
+      case CRAFTED_POKER_DECK:
+        return "Poker Card Deck";
+      case CRAFTED_SPHER_OF_POWER:
+        return "Sphere of Power";
       default:
         return "Unknown";
     }
@@ -736,6 +777,10 @@ public class JavaCraft {
       case CRAFTED_STICK:
       case CRAFTED_IRON_INGOT:
         return ANSI_BROWN;
+      case CRAFTED_POKER_DECK:
+        return ANSI_PURPLE;
+      case CRAFTED_SPHER_OF_POWER:
+        return ANSI_YELLOW;
       default:
         return "";
     }
