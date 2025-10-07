@@ -11,6 +11,7 @@ public class JavaCraft {
   private static final int IRON_ORE = 4;
   private static final int SPHERE = 5;
   private static final int ACE= 6;
+  private static final int DIAMOND_ORE = 7;
   private static int NEW_WORLD_WIDTH = 25;
   private static int NEW_WORLD_HEIGHT = 15;
   private static int EMPTY_BLOCK = 0;
@@ -31,7 +32,7 @@ public class JavaCraft {
   private static final String ANSI_GRAY = "\u001B[37m";
   private static final String ANSI_WHITE = "\u001B[97m";
   private static final String ANSI_SPHERE = "\u001B[0m";
-  private static final String ANSI_ACE= "\u001B[0m";//unicode for a sphere in minecraft
+  private static final String ANSI_ACE= "\u001B[30m";//unicode for a sphere in minecraft
 
   private static final String BLOCK_NUMBERS_INFO = "Block Numbers:\n" +
       "0 - Empty block\n" +
@@ -101,10 +102,12 @@ public class JavaCraft {
           world[x][y] = STONE;
         } else if (randValue < 70) {
           world[x][y] = IRON_ORE;
-        } else if (randValue < 75) {//sphere block new addition
+        } else if (randValue < 71) {//sphere block new addition
            world[x][y] = SPHERE;
-        } else if (randValue < 76) {
+        } else if (randValue < 72) {
            world[x][y] = ACE;
+        } else if (randValue < 80) {
+           world[x][y] = DIAMOND_ORE;
         } else {
           world[x][y] = AIR;
         }
@@ -154,6 +157,9 @@ public class JavaCraft {
       case ACE:
         blockColor = ANSI_ACE;
         break;
+      case DIAMOND_ORE:
+        blockColor = ANSI_CYAN;
+        break;
       default:
         blockColor = ANSI_RESET;
         break;
@@ -175,6 +181,8 @@ public class JavaCraft {
         return '\u25CF';
       case ACE:
         return '\u2660';
+      case DIAMOND_ORE:
+        return '\u2666';
       default:
         return '-';
     }
@@ -394,7 +402,7 @@ public class JavaCraft {
   }
 
   public static void placeBlock(int blockType) {
-    if (blockType >= 0 && blockType <= 7) {
+    if (blockType >= 0 && blockType <= 10) {
       if (blockType <= 4) {
         if (inventory.contains(blockType)) {
           inventory.remove(Integer.valueOf(blockType));
@@ -566,6 +574,10 @@ public class JavaCraft {
         System.out.println("You find an Ace of Spades card! Holding it fills you with a feeling of reassurance");
         inventory.add(ACE);
         break;
+      case DIAMOND_ORE:
+        System.out.println("You mine diamonds from the ground.");
+        inventory.add(DIAMOND_ORE);
+        break;
       case AIR:
         System.out.println("Nothing to interact with here.");
         break;
@@ -631,6 +643,8 @@ public class JavaCraft {
         return "Sphere";
       case ACE:
         return "Ace of Spades";
+      case DIAMOND_ORE:
+        return "Diamond Ore";
       default:
         return "Unknown";
     }
@@ -651,7 +665,7 @@ public class JavaCraft {
     if (inventory.isEmpty()) {
       System.out.println(ANSI_YELLOW + "Empty" + ANSI_RESET);
     } else {
-      int[] blockCounts = new int[7];
+      int[] blockCounts = new int[8];
       for (int i = 0; i < inventory.size(); i++) {
         int block = inventory.get(i);
         blockCounts[block]++;
@@ -687,6 +701,11 @@ public class JavaCraft {
         return ANSI_GRAY;
       case IRON_ORE:
         return ANSI_YELLOW;
+      case ACE:
+        return ANSI_ACE;
+      case DIAMOND_ORE:
+        return ANSI_CYAN;
+
       default:
         return "";
     }
