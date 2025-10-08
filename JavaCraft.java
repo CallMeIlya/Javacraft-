@@ -44,10 +44,13 @@ public class JavaCraft {
       "2 - Leaves block\n" +
       "3 - Stone block\n" +
       "4 - Iron ore block\n" +
-      "5 - Wooden Planks (Crafted Item)\n" +
-      "6 - Stick (Crafted Item)\n" +
-      "7 - Iron Ingot (Crafted Item)\n" +
-          "8 - Sphere (anomaly)\n";
+      "5 - Sphere (anomaly)\n" +
+      "6 - Ace of Spades\n" +
+      "7 - Diamond ore\n" +
+      "8 - Wooden Planks (Crafted Item)\n" +
+      "9 - Stick (Crafted Item)\n" +
+      "10 - Iron Ingot (Crafted Item)\n";
+
 
   private static int[][] world;
   private static int worldWidth;
